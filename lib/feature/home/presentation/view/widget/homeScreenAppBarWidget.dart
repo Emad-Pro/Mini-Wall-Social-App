@@ -1,0 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mini_social_app/core/enum/enum.dart';
+import 'package:mini_social_app/feature/home/presentation/viewModel/bloc/home_bloc.dart';
+
+AppBar homeScreenAppBarWidget(HomeState state, BuildContext context) {
+  return AppBar(
+    title: const Text("Wall Social"),
+    centerTitle: true,
+    elevation: 0,
+    backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+  );
+}
