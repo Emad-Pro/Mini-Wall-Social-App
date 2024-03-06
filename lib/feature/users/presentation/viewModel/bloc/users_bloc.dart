@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mini_social_app/core/enum/enum.dart';
-import 'package:mini_social_app/feature/profile/data/customProfileModel/profileModel.dart';
+import 'package:mini_social_app/feature/profile/data/model/profileModel.dart';
 
 part 'users_event.dart';
 part 'users_state.dart';

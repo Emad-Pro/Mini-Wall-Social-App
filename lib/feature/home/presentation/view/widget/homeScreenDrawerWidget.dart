@@ -43,9 +43,17 @@ class HomeScreenDrawerWidget extends StatelessWidget {
             text: "Users",
             icon: Icons.groups,
           ),
+          CustomListTileWidget(
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/settingScreen");
+            },
+            text: "Settings",
+            icon: Icons.settings,
+          ),
           const Spacer(),
           Padding(
-            padding: EdgeInsets.only(bottom: 15),
+            padding: const EdgeInsets.only(bottom: 15),
             child: CustomListTileWidget(
               onTap: () {
                 BlocProvider.of<HomeBloc>(context).add(SignUpHomeEvent());

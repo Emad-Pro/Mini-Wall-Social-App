@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_social_app/core/sharedPreferences/cacheHelper.dart';
 
 class ThemeService {
   ThemeData lightMode = ThemeData(
@@ -28,16 +29,16 @@ class ThemeService {
         .textTheme
         .apply(bodyColor: Colors.grey[300], displayColor: Colors.white),
   );
-/* static bool darkModeValue = false;
+  static bool darkModeValue = false;
   static Future settingDarkModeInit() async {
-      if (CacheHelper.getSaveData(key: "darkMode") == null) {
+    if (CacheHelper.getSaveData(key: "darkMode") == null) {
       CacheHelper.saveData(key: "darkMode", value: false);
     }
     darkModeValue = await CacheHelper.getSaveData(key: "darkMode");
   }
 
- static Future changeDarkMode() async {
+  static Future changeDarkMode() async {
     darkModeValue = !darkModeValue;
     await CacheHelper.saveData(key: "darkMode", value: darkModeValue);
-  }*/
+  }
 }

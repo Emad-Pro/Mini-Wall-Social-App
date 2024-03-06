@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_social_app/core/enum/enum.dart';
 import 'package:mini_social_app/core/widgets/customButtonWidget.dart';
 import 'package:mini_social_app/core/widgets/customTextFormWidget.dart';
+import 'package:mini_social_app/feature/auth/signIn/presentation/view/method/signInListenerMethod.dart';
+import 'package:mini_social_app/feature/auth/signIn/presentation/view/widget/signinscreenregisterHereWidget.dart';
 import 'package:mini_social_app/feature/auth/signIn/presentation/viewModel/bloc/sign_in_bloc.dart';
 import 'package:mini_social_app/feature/auth/signUp/presentation/view/signUpScreen.dart';
 import 'package:mini_social_app/feature/home/presentation/view/homeScreen.dart';
@@ -19,24 +21,7 @@ class SignInScreen extends StatelessWidget {
       backgroundColor: Theme.of(context).colorScheme.background,
       body: BlocConsumer<SignInBloc, SignInState>(
         listener: (context, state) {
-          if (state.signInRequestState == RequestState.success) {
-            MotionToast.success(
-              title: const Text(
-                "Login",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              description: const Text("Successfully Login"),
-            ).show(context);
-            Navigator.pushNamed(context, "/homeScreen");
-          } else if (state.signInRequestState == RequestState.erorr) {
-            MotionToast.error(
-              title: const Text(
-                "Login",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              description: Text(state.signInMessage),
-            ).show(context);
-          }
+          signInListenerMethod(state, context);
         },
         builder: (context, state) {
           return Form(
@@ -114,24 +99,7 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text("Don't have an account? "),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => SignUpScreen()));
-                        },
-                        child: const Text(
-                          "Register Here",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      )
-                    ],
-                  )
+                  const SigninCcreenRegisterHereWidget()
                 ],
               ),
             )),
