@@ -8,6 +8,7 @@ AppBar homeScreenAppBarWidget(HomeState state, BuildContext context) {
     title: const Text("Wall Social"),
     centerTitle: true,
     elevation: 0,
-    backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    backgroundColor: Colors.transparent,
+    foregroundColor: Theme.of(context).colorScheme.inversePrimary,
   );
 }

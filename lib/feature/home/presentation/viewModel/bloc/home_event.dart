@@ -8,3 +8,11 @@ class HomeEvent extends Equatable {
 }
 
 class SignUpHomeEvent extends HomeEvent {}
+
+class AddPostHomeEvent extends HomeEvent {
+  final String message;
+
+  const AddPostHomeEvent({required this.message});
+}
+
+class GetPostsHomeEvent extends HomeEvent {}

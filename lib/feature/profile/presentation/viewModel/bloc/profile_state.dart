@@ -1,7 +1,7 @@
 part of 'profile_bloc.dart';
 
 class ProfileState extends Equatable {
-  final ProfileModel? profileModel;
+  final CustomProfileModel? profileModel;
   final RequestState requestState;
   final String erorrMessage;
   const ProfileState(
@@ -9,7 +9,7 @@ class ProfileState extends Equatable {
       this.requestState = RequestState.loading,
       this.erorrMessage = ""});
   ProfileState copyWith(
-      {ProfileModel? profileModel,
+      {CustomProfileModel? profileModel,
       RequestState? requestState,
       String? erorrMessage}) {
     return ProfileState(

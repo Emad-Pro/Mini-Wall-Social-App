@@ -17,7 +17,8 @@ import 'package:mini_social_app/feature/profile/presentation/view/profileScreen.
 import 'package:mini_social_app/feature/users/presentation/view/usersScreen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();  HttpOverrides.global = MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = MyHttpOverrides();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeService().lightMode,
         darkTheme: ThemeService().darkMode,
         home: const MainViewBody(),
+        themeMode: ThemeMode.dark,
         routes: {
           "/signInScreen": (context) => SignInScreen(),
           "/signUpScreen": (context) => SignUpScreen(),
@@ -50,10 +52,12 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(context) {
     return super.createHttpClient(context)
-      ..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
   }
 }

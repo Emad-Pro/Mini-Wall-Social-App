@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_social_app/core/enum/enum.dart';
+import 'package:mini_social_app/core/widgets/CustomBackButton.dart';
 import 'package:mini_social_app/feature/profile/presentation/viewModel/bloc/profile_bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -9,10 +10,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Profile"),
-      ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: BlocProvider(
         create: (context) => ProfileBloc()..add(GetUserDetailsProfileEvent()),
@@ -28,20 +25,26 @@ class ProfileScreen extends StatelessWidget {
                 );
               case RequestState.success:
                 return Center(
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const CircleAvatar(
-                        radius: 50,
-                        backgroundImage: NetworkImage(
-                            'https://img.freepik.com/premium-vector/text-effect-with-writing-stuck-wall_269039-74.jpg'),
+                      const CustomBackButton(),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      const Center(
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: NetworkImage(
+                              'https://img.freepik.com/premium-vector/text-effect-with-writing-stuck-wall_269039-74.jpg'),
+                        ),
                       ),
                       const SizedBox(height: 20),
                       Text(
                         state.profileModel!.name!,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 10),
                       Text(
                         state.profileModel!.email!,
                         style: const TextStyle(fontSize: 16),

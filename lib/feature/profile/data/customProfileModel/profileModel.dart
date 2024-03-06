@@ -1,10 +1,10 @@
-class ProfileModel {
+class CustomProfileModel {
   String? email;
   String? name;
 
-  ProfileModel({this.email, this.name});
+  CustomProfileModel({this.email, this.name});
 
-  ProfileModel.fromJson(Map<String, dynamic> json) {
+  CustomProfileModel.fromJson(Map<String, dynamic> json) {
     email = json['email'];
     name = json['userName'];
   }
