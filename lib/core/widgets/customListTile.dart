@@ -1,3 +1,4 @@
+import 'package:auto_direction/auto_direction.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -8,7 +9,7 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title),
+      title: AutoDirection(text: title, child: Text(title)),
       subtitle: Text(
         subtitle,
         style: TextStyle(color: Theme.of(context).colorScheme.secondary),
