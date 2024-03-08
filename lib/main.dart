@@ -10,8 +10,6 @@ import 'package:mini_social_app/feature/auth/signIn/presentation/viewModel/bloc/
 import 'package:mini_social_app/feature/auth/signUp/presentation/view/signUpScreen.dart';
 import 'package:mini_social_app/feature/auth/signUp/presentation/viewModel/bloc/sign_up_bloc.dart';
 import 'package:mini_social_app/feature/home/presentation/view/homeScreen.dart';
-import 'package:mini_social_app/feature/home/presentation/viewModel/bloc/home_bloc.dart';
-
 import 'package:mini_social_app/feature/mainViewBody.dart';
 import 'package:mini_social_app/core/firebase_options.dart';
 import 'package:mini_social_app/feature/profile/presentation/view/profileScreen.dart';
@@ -37,7 +35,6 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => SignUpBloc()),
         BlocProvider(create: (context) => SignInBloc()),
-        BlocProvider(create: (context) => HomeBloc()),
         BlocProvider(create: (context) => SettingCubit()),
       ],
       child: Builder(builder: (context) {

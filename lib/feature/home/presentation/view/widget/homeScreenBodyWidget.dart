@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_social_app/feature/home/presentation/view/widget/homeScreenTextFormFiledAddPost.dart';
 import 'package:mini_social_app/feature/home/presentation/view/widget/homeStreamBuilderViewBodyScreen.dart';
-import 'package:mini_social_app/feature/home/presentation/viewModel/bloc/home_bloc.dart';
+import 'package:mini_social_app/feature/home/presentation/viewModel/cubit/home_state.dart';
 
 class HomeScreenBodyWidget extends StatelessWidget {
   HomeScreenBodyWidget({super.key, required this.homeState});

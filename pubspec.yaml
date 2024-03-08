@@ -44,6 +44,7 @@ dependencies:
   cloud_firestore: ^4.15.6
   shared_preferences: ^2.2.2
   auto_direction: ^0.0.7
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

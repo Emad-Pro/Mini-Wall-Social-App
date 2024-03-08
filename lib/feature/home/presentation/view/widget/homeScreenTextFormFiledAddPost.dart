@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_social_app/core/widgets/customTextFormWidget.dart';
-import 'package:mini_social_app/feature/home/presentation/viewModel/bloc/home_bloc.dart';
+import 'package:mini_social_app/feature/home/presentation/viewModel/cubit/home_cubit.dart';
 
 class HomeScreenTextFormFiledAddPost extends StatelessWidget {
   const HomeScreenTextFormFiledAddPost({
@@ -30,8 +30,8 @@ class HomeScreenTextFormFiledAddPost extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (textEditingController.text.isNotEmpty) {
-                BlocProvider.of<HomeBloc>(context)
-                    .add(AddPostHomeEvent(message: textEditingController.text));
+                BlocProvider.of<HomeCubit>(context)
+                    .addPostsHomeMethod(textEditingController.text);
                 textEditingController.clear();
               }
             },

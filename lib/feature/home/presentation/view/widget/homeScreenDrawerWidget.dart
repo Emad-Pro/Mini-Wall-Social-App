@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mini_social_app/feature/home/presentation/viewModel/bloc/home_bloc.dart';
+
+import 'package:mini_social_app/feature/home/presentation/viewModel/cubit/home_cubit.dart';
 
 class HomeScreenDrawerWidget extends StatelessWidget {
   const HomeScreenDrawerWidget({Key? key}) : super(key: key);
@@ -56,7 +57,7 @@ class HomeScreenDrawerWidget extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 15),
             child: CustomListTileWidget(
               onTap: () {
-                BlocProvider.of<HomeBloc>(context).add(SignUpHomeEvent());
+                BlocProvider.of<HomeCubit>(context).signOutAccount();
               },
               text: "SignOut",
               icon: Icons.logout_sharp,
